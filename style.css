@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --azul-ios: #0a84ff;
+  --preto-texto: #1c1c1e;
+  --cinza-claro: #f2f2f7;
+  --cinza-funcao: #e4e4ec;
+}
+
+html,
+body,
+main {
+  min-height: 100dvh;
+  background-color: #d9d9df;
+  font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+#telefone {
+  position: relative;
+  width: 320px;
+  height: 660px;
+  background-color: #fff;
+  border: 12px solid #111;
+  border-radius: 55px;
+  box-shadow:
+    0 0 0 2px #333,
+    0 20px 40px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#ilha-dinamica {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 96px;
+  height: 24px;
+  background-color: #111;
+  border-radius: 20px;
+  z-index: 10;
+}
+
+#barra-status {
+  position: relative;
+  height: 34px;
+  color: var(--preto-texto);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#hora {
+  position: absolute;
+  left: 26px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#icones-status {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.icone-status {
+  display: block;
+  flex-shrink: 0;
+  height: 16px;
+  width: auto;
+  margin-left: 6px;
+}
+
+.icone-status-sinal {
+  height: 11px;
+}
+
+.icone-status-wifi {
+  height: 12px;
+}
+
+.icone-status:first-child {
+  margin-left: 0;
+}
+
+#calculadora {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 12px 18px 24px;
+  gap: 14px;
+}
+
+#display {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  min-height: 90px;
+  padding: 0 6px;
+}
+
+#visor-expressao {
+  font-size: 34px;
+  color: var(--preto-texto);
+  word-break: break-all;
+  text-align: right;
+  line-height: 1.1;
+}
+
+#visor-resultado {
+  font-size: 20px;
+  color: var(--azul-ios);
+  min-height: 24px;
+}
+
+#grid-numeros {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+#grid-numeros button {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    filter 0.15s ease-in-out,
+    background-color 0.15s ease-in-out;
+}
+
+.icone {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+/* pinta o ícone (preto por padrão) de azul */
+.botao-funcao .icone,
+.botao-operador .icone {
+  filter: invert(46%) sepia(69%) saturate(5510%) hue-rotate(198deg)
+    brightness(103%) contrast(101%);
+}
+
+/* pinta o ícone de branco */
+.botao-operador.selecionado .icone,
+#botao-igual .icone {
+  filter: brightness(0) invert(1);
+}
+
+.botao-numero {
+  background-color: var(--cinza-claro);
+  color: var(--preto-texto);
+}
+
+.botao-numero:active {
+  filter: brightness(0.9);
+}
+
+.botao-funcao {
+  background-color: var(--cinza-funcao);
+  color: var(--azul-ios);
+  font-weight: 600;
+}
+
+.botao-funcao:active {
+  filter: brightness(0.92);
+}
+
+.botao-operador {
+  background-color: var(--cinza-funcao);
+  color: var(--azul-ios);
+  font-size: 24px;
+}
+
+.botao-operador:active {
+  filter: brightness(0.92);
+}
+
+.botao-operador.selecionado {
+  background-color: var(--azul-ios);
+  color: #fff;
+}
+
+#botao-igual {
+  background-color: var(--azul-ios);
+  color: #fff;
+  font-size: 24px;
+}
+
+#botao-igual:active {
+  filter: brightness(0.9);
+}
